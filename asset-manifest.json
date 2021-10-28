@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/simbirsoft-workshop-admin/static/css/main.42c7186a.chunk.css",
+    "main.js": "/simbirsoft-workshop-admin/static/js/main.1a3aa182.chunk.js",
+    "main.js.map": "/simbirsoft-workshop-admin/static/js/main.1a3aa182.chunk.js.map",
+    "runtime-main.js": "/simbirsoft-workshop-admin/static/js/runtime-main.7add0267.js",
+    "runtime-main.js.map": "/simbirsoft-workshop-admin/static/js/runtime-main.7add0267.js.map",
+    "static/js/2.cecae73e.chunk.js": "/simbirsoft-workshop-admin/static/js/2.cecae73e.chunk.js",
+    "static/js/2.cecae73e.chunk.js.map": "/simbirsoft-workshop-admin/static/js/2.cecae73e.chunk.js.map",
+    "index.html": "/simbirsoft-workshop-admin/index.html",
+    "static/css/main.42c7186a.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.42c7186a.chunk.css.map",
+    "static/js/2.cecae73e.chunk.js.LICENSE.txt": "/simbirsoft-workshop-admin/static/js/2.cecae73e.chunk.js.LICENSE.txt",
+    "static/media/logo.b2e5a01e.svg": "/simbirsoft-workshop-admin/static/media/logo.b2e5a01e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7add0267.js",
+    "static/js/2.cecae73e.chunk.js",
+    "static/css/main.42c7186a.chunk.css",
+    "static/js/main.1a3aa182.chunk.js"
+  ]
+}
