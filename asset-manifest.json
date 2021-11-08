@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/simbirsoft-workshop-admin/static/css/main.c84b20e1.chunk.css",
-    "main.js": "/simbirsoft-workshop-admin/static/js/main.afc13cde.chunk.js",
-    "main.js.map": "/simbirsoft-workshop-admin/static/js/main.afc13cde.chunk.js.map",
+    "main.css": "/simbirsoft-workshop-admin/static/css/main.a88452a7.chunk.css",
+    "main.js": "/simbirsoft-workshop-admin/static/js/main.588d88a2.chunk.js",
+    "main.js.map": "/simbirsoft-workshop-admin/static/js/main.588d88a2.chunk.js.map",
     "runtime-main.js": "/simbirsoft-workshop-admin/static/js/runtime-main.4572be3d.js",
     "runtime-main.js.map": "/simbirsoft-workshop-admin/static/js/runtime-main.4572be3d.js.map",
-    "static/js/2.9322699f.chunk.js": "/simbirsoft-workshop-admin/static/js/2.9322699f.chunk.js",
-    "static/js/2.9322699f.chunk.js.map": "/simbirsoft-workshop-admin/static/js/2.9322699f.chunk.js.map",
+    "static/js/2.2929f829.chunk.js": "/simbirsoft-workshop-admin/static/js/2.2929f829.chunk.js",
+    "static/js/2.2929f829.chunk.js.map": "/simbirsoft-workshop-admin/static/js/2.2929f829.chunk.js.map",
     "index.html": "/simbirsoft-workshop-admin/index.html",
-    "static/css/main.c84b20e1.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.c84b20e1.chunk.css.map",
-    "static/js/2.9322699f.chunk.js.LICENSE.txt": "/simbirsoft-workshop-admin/static/js/2.9322699f.chunk.js.LICENSE.txt",
+    "static/css/main.a88452a7.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.a88452a7.chunk.css.map",
+    "static/js/2.2929f829.chunk.js.LICENSE.txt": "/simbirsoft-workshop-admin/static/js/2.2929f829.chunk.js.LICENSE.txt",
     "static/media/Logo.bc4f3ee8.svg": "/simbirsoft-workshop-admin/static/media/Logo.bc4f3ee8.svg",
     "static/media/index.scss": "/simbirsoft-workshop-admin/static/media/Roboto-Regular.a8d6ac03.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.4572be3d.js",
-    "static/js/2.9322699f.chunk.js",
-    "static/css/main.c84b20e1.chunk.css",
-    "static/js/main.afc13cde.chunk.js"
+    "static/js/2.2929f829.chunk.js",
+    "static/css/main.a88452a7.chunk.css",
+    "static/js/main.588d88a2.chunk.js"
   ]
 }
