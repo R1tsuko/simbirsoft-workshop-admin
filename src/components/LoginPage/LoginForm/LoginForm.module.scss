@@ -17,19 +17,26 @@
   .title {
     text-align: center;
     font-size: 17.5px;
+    color: #3D5170;
   }
 
-  .formErrorMessage {
+  .formErrorMessageWrapper {
     position: absolute;
     top: 60px;
-    font-size: 10px;
     text-align: center;
+  }
+  .inputErrorMessageWrapper {
+    margin-left: 8px;
+  }
+  .errorMessage {
+    font-size: 10px;
     color: red;
   }
   .inputsContainer {
     margin-top: 32px;
     .label {
       font-size: 10.5px;
+      color: #495057;
     }
     .input {
       margin-top: 8px;
@@ -42,6 +49,7 @@
       padding: 8px 12px;
       font-size: 11px;
       outline: none;
+      color: #3D5170;
     }
   }
 
