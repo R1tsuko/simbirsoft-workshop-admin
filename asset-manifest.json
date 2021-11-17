@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/simbirsoft-workshop-admin/static/css/main.dba75368.chunk.css",
+    "main.css": "/simbirsoft-workshop-admin/static/css/main.1ff4ff41.chunk.css",
     "main.js": "/simbirsoft-workshop-admin/static/js/main.0e70dc57.chunk.js",
     "main.js.map": "/simbirsoft-workshop-admin/static/js/main.0e70dc57.chunk.js.map",
     "runtime-main.js": "/simbirsoft-workshop-admin/static/js/runtime-main.4572be3d.js",
@@ -8,7 +8,7 @@
     "static/js/2.07c92aff.chunk.js": "/simbirsoft-workshop-admin/static/js/2.07c92aff.chunk.js",
     "static/js/2.07c92aff.chunk.js.map": "/simbirsoft-workshop-admin/static/js/2.07c92aff.chunk.js.map",
     "index.html": "/simbirsoft-workshop-admin/index.html",
-    "static/css/main.dba75368.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.dba75368.chunk.css.map",
+    "static/css/main.1ff4ff41.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.1ff4ff41.chunk.css.map",
     "static/js/2.07c92aff.chunk.js.LICENSE.txt": "/simbirsoft-workshop-admin/static/js/2.07c92aff.chunk.js.LICENSE.txt",
     "static/media/CheckIcon.23a56dac.svg": "/simbirsoft-workshop-admin/static/media/CheckIcon.23a56dac.svg",
     "static/media/Checkbox.module.scss": "/simbirsoft-workshop-admin/static/media/CheckboxCheck.d4b0555a.svg",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.4572be3d.js",
     "static/js/2.07c92aff.chunk.js",
-    "static/css/main.dba75368.chunk.css",
+    "static/css/main.1ff4ff41.chunk.css",
     "static/js/main.0e70dc57.chunk.js"
   ]
 }
