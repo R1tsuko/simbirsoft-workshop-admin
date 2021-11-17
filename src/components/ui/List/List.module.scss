@@ -1,0 +1,23 @@
+@import '../../../assets/styles/colors.scss';
+
+.listContainer {
+    .content {
+        padding: 0 8px 0 8px;
+        border-top: 1px solid #E0E2E8;
+        border-bottom: 1px solid #E0E2E8;
+    }
+    .pagesWrapper {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width:768px) {
+    .listContainer {
+        .content {
+            padding: 0 16px 0 16px;
+        }
+    }
+}

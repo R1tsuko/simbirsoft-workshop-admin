@@ -1,0 +1,64 @@
+@import '../../assets/styles/colors.scss';
+
+.pageContainer {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+
+  .main {
+    overflow-y: scroll;
+    position: relative;
+    padding: 8px 8px 0 8px;
+    grid-area: main;
+    background: #f5f6f8;
+    box-sizing: border-box;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: $gray-light;
+  
+      &-thumb {
+        background: $gray-dark;
+        height: 30px;
+        border-radius: 5px;
+      }
+    }
+
+    .title {
+      font-size: 29px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: -0.725px;
+      color: $cobalt;
+      margin-bottom: 8px;
+    }
+
+    .content {
+      width: 100%;
+      min-height: 100%;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .pageContainer {
+    .main {
+      padding: 16px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .pageContainer {
+    grid-template-columns: 280px 1fr;
+    grid-template-areas:
+      'sidebar header'
+      'sidebar main'
+      'sidebar footer';
+  }
+}

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,6 +10,8 @@ import {
 } from '../../../store/slices/authSlice';
 import Loader from '../../ui/Loader/Loader';
 import { ILoginData } from '../../../utils/types';
+import Button from '../../ui/Button/Button';
+import Input from '../../ui/Input/Input';
 import styles from './LoginForm.module.scss';
 
 const LoginForm = () => {
@@ -54,41 +55,31 @@ const LoginForm = () => {
           )}
 
           <div className={styles.inputsContainer}>
-            <label className={styles.label} htmlFor='username'>
-              Почта
-            </label>
-            <span className={styles.inputErrorMessageWrapper}>
-              <span className={styles.errorMessage}>
-                {errors.username?.message}
-              </span>
-            </span>
-            <input
-              className={styles.input}
+            <Input
+              labelText='Почта'
               id='username'
               type='text'
-              {...register('username', { required: true, maxLength: 15 })}
+              registerReturn={register('username', {
+                required: true,
+                maxLength: 15,
+              })}
+              errorMessage={errors.username?.message}
             />
-
-            <label className={styles.label} htmlFor='password'>
-              Пароль
-            </label>
-            <span className={styles.inputErrorMessageWrapper}>
-              <span className={styles.errorMessage}>
-                {errors.password?.message}
-              </span>
-            </span>
-            <input
-              className={styles.input}
+            <Input
+              labelText='Пароль'
               id='password'
               type='password'
-              {...register('password', { required: true })}
+              registerReturn={register('password', {
+                required: true,
+              })}
+              errorMessage={errors.password?.message}
             />
           </div>
           <div className={styles.controls}>
             <div className={styles.register}>Запросить доступ</div>
-            <button className={styles.submit} type='submit'>
-              Войти
-            </button>
+            <div className={styles.submitWrapper}>
+              <Button type='submit' text='Войти' />
+            </div>
           </div>
         </form>
       )}

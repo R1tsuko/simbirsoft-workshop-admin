@@ -1,0 +1,139 @@
+@import '../../../../../assets/styles/mixins.scss';
+
+.itemContainer {
+  width: 100%;
+  height: 230px;
+  display: grid;
+  grid-template-rows: 63px auto auto 1fr;
+  grid-template-columns: 138px 1fr;
+  grid-template-areas:
+    'img price'
+    'info info'
+    'options options'
+    'controls controls';
+  gap: 8px;
+  border-bottom: 1px solid $gray-border;
+  padding-top: 8px;
+  &:last-child {
+    border: none;
+  }
+
+  .carImgWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    grid-area: img;
+
+    .carImg {
+      width: 138px;
+    }
+  }
+
+  .infoWrapper {
+    grid-area: info;
+    .info {
+      color: #868e96;
+      font-size: 13px;
+      .row {
+        line-height: 20px;
+        .highlighted {
+          color: $main-black;
+        }
+      }
+    }
+  }
+
+  .options {
+    grid-area: options;
+    display: flex;
+    gap: 8px;
+  }
+
+  .price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: price;
+    font-size: 24px;
+    color: $main-black;
+  }
+
+  .controls {
+    grid-area: controls;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .control {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      width: 71px;
+      border: 1px solid #becad6;
+      background: white;
+      font-size: 11px;
+      letter-spacing: -0.345714px;
+      color: #5a6169;
+      box-sizing: border-box;
+      @include button-states;
+    }
+
+    .leftControl {
+      border-radius: 4px 0px 0px 4px;
+      margin-right: -1px;
+    }
+
+    .rightControl {
+      border-radius: 0px 4px 4px 0px;
+      margin-left: -1px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .itemContainer {
+    height: 150px;
+    grid-template-rows: 63px 1fr;
+    grid-template-columns: 138px 1fr auto;
+    grid-template-areas:
+      'img info options'
+      'price controls options';
+    gap: 16px;
+
+    .infoWrapper {
+      display: flex;
+      align-items: center;
+      .info {
+        .row {
+          line-height: 21px;
+
+          .address {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    .options {
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .itemContainer {
+    height: 80px;
+    grid-template-columns: 138px 1fr 0.3fr 0.3fr 0.5fr;
+    grid-template-areas: 'img info options price controls';
+
+    .infoWrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

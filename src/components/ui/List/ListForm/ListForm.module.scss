@@ -1,0 +1,42 @@
+.form {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .fieldsContainer,
+  .buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+    padding: 16px;
+
+    justify-content: space-between;
+    align-items: center;
+
+    .fieldsContainer,
+    .buttonsContainer {
+      flex-direction: row;
+      gap: 8px;
+    }
+
+    .fieldsContainer {
+      flex-wrap: wrap;
+
+      .fieldWrapper {
+        width: 110px;
+      }
+    }
+    .buttonsContainer {
+      .buttonWrapper {
+        width: 95px;
+      }
+    }
+  }
+}

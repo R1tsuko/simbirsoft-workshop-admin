@@ -3,21 +3,17 @@
 
 .formWrapper {
   background: #ffffff;
-  box-shadow: 0px 1px 0px rgba(90, 97, 105, 0.11),
-    0px 2px 4px rgba(90, 97, 105, 0.12), 0px 5px 5px rgba(90, 97, 105, 0.06),
-    0px 3.5px 35px rgba(90, 97, 105, 0.1);
-  border-radius: 9px;
-  box-sizing: border-box;
   padding: 18px;
   padding-top: 20px;
   width: 100%;
   height: 255px;
   position: relative;
+  @include shadowed-block;
 
   .title {
     text-align: center;
     font-size: 17.5px;
-    color: #3D5170;
+    color: $cobalt;
   }
 
   .formErrorMessageWrapper {
@@ -25,32 +21,12 @@
     top: 60px;
     text-align: center;
   }
-  .inputErrorMessageWrapper {
-    margin-left: 8px;
-  }
   .errorMessage {
     font-size: 10px;
     color: red;
   }
   .inputsContainer {
     margin-top: 32px;
-    .label {
-      font-size: 10.5px;
-      color: #495057;
-    }
-    .input {
-      margin-top: 8px;
-      background: #ffffff;
-      border: 0.5px solid #becad6;
-      box-sizing: border-box;
-      border-radius: 3px;
-      height: 29px;
-      width: 100%;
-      padding: 8px 12px;
-      font-size: 11px;
-      outline: none;
-      color: #3D5170;
-    }
   }
 
   .controls {
@@ -63,18 +39,8 @@
       font-size: 10.5px;
     }
 
-    .submit {
-      cursor: pointer;
-      height: 30px;
+    .submitWrapper {
       width: 110px;
-      background-color: $main-blue;
-      color: white;
-      border: 0.5px solid $main-blue;
-      box-sizing: border-box;
-      border-radius: 4px;
-      font-size: 11.5px;
-
-      @include button-states;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { APP_SECRET, TOKENS_DETAILS_NAME } from '../constants/authConstants';
+import { APP_SECRET, TOKENS_DETAILS_NAME } from '../constants';
 import { ITokensInfo } from '../types';
 
 export const getRandomHash = (len: number): string => {

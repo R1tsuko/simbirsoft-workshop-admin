@@ -1,0 +1,24 @@
+@import '../../../assets/styles/mixins.scss';
+@import '../../../assets/styles/colors.scss';
+
+.button {
+  cursor: pointer;
+  height: 30px;
+  width: 100%;
+  background-color: $main-blue;
+  color: white;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 11.5px;
+
+  @include button-states;
+
+  &.red {
+    background-color: red;
+  }
+  &.gray {
+    color: $cobalt;
+    background: #e9ecef;
+  }
+}

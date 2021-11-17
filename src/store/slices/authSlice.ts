@@ -6,7 +6,7 @@ import {
   saveTokensInLocalStorage,
   clearTokensInLocalStorage,
 } from '../../utils/helpers/authHelpers';
-import authApi from '../../api/authApi';
+import { authApi } from '../../api';
 import { ILoginData, ILoginResponseData } from '../../utils/types';
 import { RootState, AppDispatch } from '../store';
 
