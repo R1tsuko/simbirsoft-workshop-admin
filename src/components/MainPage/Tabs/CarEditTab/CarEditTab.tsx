@@ -21,12 +21,13 @@ const CarEditTab = () => (
         id='model'
         type='text'
         errorMessage='Пример ошибки валидации'
+        blackText
       />
-      <Input labelText='Тип автомобиля' id='category' type='text' />
+      <Input labelText='Тип автомобиля' id='category' type='text' blackText />
       <div className={styles.colorsFieldContainer}>
         <div className={styles.field}>
           <div className={styles.colorsInputWrapper}>
-            <Input labelText='Доступные цвета' id='color' type='text' />
+            <Input labelText='Доступные цвета' id='color' type='text' blackText />
           </div>
           <button className={styles.plusButton} type='button'>
             <svg

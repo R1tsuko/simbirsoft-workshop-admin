@@ -23,4 +23,11 @@
     outline: none;
     color: $cobalt;
   }
+
+  &.black {
+    .label,
+    .input {
+      color: $main-black;
+    }
+  }
 }

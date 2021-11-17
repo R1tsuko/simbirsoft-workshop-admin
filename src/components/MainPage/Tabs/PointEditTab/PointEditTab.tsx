@@ -12,11 +12,11 @@ const PointEditTab = () => (
     />
 
     <EditTabOptions title='Настройки пункта'>
-      <Input labelText='Город' id='city' type='text' />
+      <Input labelText='Город' id='city' type='text' blackText />
 
-      <Input labelText='Адрес' id='address' type='text' />
+      <Input labelText='Адрес' id='address' type='text' blackText />
 
-      <Input labelText='Название' id='name' type='text' />
+      <Input labelText='Название' id='name' type='text' blackText />
     </EditTabOptions>
   </form>
 );

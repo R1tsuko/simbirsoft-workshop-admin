@@ -9,11 +9,11 @@ const RateEditTab = () => (
     <EditTabCard title='Название тарифа' subtitle='1234 ₽/мин' />
 
     <EditTabOptions title='Настройки тарифа'>
-      <Input labelText='Ед. изм' id='unit' type='text' />
+      <Input labelText='Ед. изм' id='unit' type='text' blackText />
 
-      <Input labelText='Цена за ед. изм' id='price' type='text' />
+      <Input labelText='Цена за ед. изм' id='price' type='text' blackText />
 
-      <Input labelText='Название' id='name' type='text' />
+      <Input labelText='Название' id='name' type='text' blackText />
     </EditTabOptions>
   </form>
 );

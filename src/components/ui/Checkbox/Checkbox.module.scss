@@ -30,13 +30,9 @@
       }
     }
 
-    &:disabled + label {
-      opacity: 50%;
-      &::before {
-        background-image: url('../../../assets/icons/CheckboxCheck.svg');
-        border-color: $main-accent;
-      }
-    }
+    // &:disabled + label {
+    //   opacity: 50%;
+    // }
   }
 
   .label {
