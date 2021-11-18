@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/mixins.scss';
+
+.tabContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  .errorCode {
+    font-weight: 500;
+    font-size: 75px;
+    color: #cacedb;
+  }
+
+  .errorMessage {
+    font-size: 50px;
+    color: $cobalt;
+  }
+
+  .advice {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #818ea3;
+  }
+}

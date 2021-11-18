@@ -1,0 +1,24 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.selectContainer {
+  position: relative;
+
+  .select {
+    width: 100%;
+    height: 30px;
+    @include field;
+    outline: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    color: #868E96;
+    padding: 0 13px 0 13px;
+    appearance: none;
+  }
+  .arrows {
+    right: 13px;
+    top: 11px;
+    position: absolute;
+  }
+}

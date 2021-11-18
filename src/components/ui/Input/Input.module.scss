@@ -1,0 +1,33 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.inputContainer {
+  .inputErrorMessageWrapper {
+    margin-left: 8px;
+    .errorMessage {
+      font-size: 10px;
+      color: red;
+    }
+  }
+  .label {
+    font-size: 10.5px;
+    color: #495057;
+  }
+  .input {
+    margin-top: 8px;
+    @include field;
+    height: 30px;
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 11px;
+    outline: none;
+    color: $cobalt;
+  }
+
+  &.black {
+    .label,
+    .input {
+      color: $main-black;
+    }
+  }
+}

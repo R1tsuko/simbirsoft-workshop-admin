@@ -1,0 +1,36 @@
+@import '../../../assets/styles/colors.scss';
+
+.nav {
+  width: 100%;
+  border-top: 1px solid $gray-border;
+  .navlink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 20px 32px 20px 54px;
+    border-bottom: 1px solid $gray-border;
+    box-sizing: border-box;
+    gap: 8px;
+
+    .icon {
+      fill: #cacedb;
+    }
+
+    .linkWrapper {
+      width: 100%;
+      font-size: 15px;
+      color: $cobalt;
+    }
+
+    &.active,
+    &:hover {
+      .icon {
+        fill: $main-blue;
+      }
+      .linkWrapper {
+        color: $main-blue;
+      }
+    }
+  }
+}

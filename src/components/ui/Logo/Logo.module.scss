@@ -1,0 +1,13 @@
+@import '../../../assets/styles/colors.scss';
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  .title {
+    font-size: 24px;
+    color: $cobalt;
+  }
+}

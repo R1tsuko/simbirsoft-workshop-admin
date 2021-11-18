@@ -1,0 +1,56 @@
+@import '../../../assets/styles/colors.scss';
+@import '../../../assets/styles/mixins.scss';
+
+.options {
+  width: 100%;
+  @include shadowed-block;
+  min-height: 350px;
+  padding: 8px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  .title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17.5px;
+    color: $cobalt;
+  }
+
+  .fieldsContainer {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .controlsContainer {
+    flex: 1 1;
+    margin-top: 32px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    .submitWrapper,
+    .resetWrapper,
+    .deleteWrapper {
+      width: 110px;
+    }
+
+    .deleteWrapper {
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .options {
+    padding: 16px;
+    margin-top: 0;
+
+    .fieldsContainer {
+      flex-direction: row;
+      flex-wrap: wrap;
+      .inputWrapper {
+        width: 320px;
+      }
+    }
+  }
+}

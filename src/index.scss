@@ -49,7 +49,12 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  color: $main-black;
+  color: black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }

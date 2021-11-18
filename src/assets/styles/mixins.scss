@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 @mixin button-states {
   &:hover {
     filter: brightness(90%);
@@ -11,4 +13,20 @@
     background: $gray-light;
     filter: brightness(100%);
   }
+}
+
+@mixin shadowed-block {
+  box-shadow: 0px 1px 0px rgba(90, 97, 105, 0.11),
+    0px 2px 4px rgba(90, 97, 105, 0.12), 0px 5px 5px rgba(90, 97, 105, 0.06),
+    0px 3.5px 35px rgba(90, 97, 105, 0.1);
+  border-radius: 9px;
+  box-sizing: border-box;
+  background: white;
+}
+
+@mixin field {
+  background: white;
+  border: 0.5px solid #becad6;
+  box-sizing: border-box;
+  border-radius: 4px;
 }

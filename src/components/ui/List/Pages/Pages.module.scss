@@ -1,0 +1,44 @@
+@import '../../../../assets/styles/colors.scss';
+
+.pagesContainer {
+  width: fit-content;
+  color: $main-blue;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+
+  .page,
+  .previous,
+  .next,
+  .break {
+    cursor: pointer;
+    display: inline;
+  }
+
+  .next {
+    margin-left: 5px;
+  }
+  .previous {
+    margin-right: 5px;
+  }
+
+  .page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 4px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    &.active {
+      background-color: $main-blue;
+      color: white;
+    }
+  }
+
+  .previous,
+  .next {
+    letter-spacing: -2.5px;
+  }
+}

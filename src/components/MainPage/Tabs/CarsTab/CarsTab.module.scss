@@ -1,0 +1,31 @@
+@import '../../../../assets/styles/mixins.scss';
+
+.tabContainer {
+  @include shadowed-block;
+}
+
+.colorsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.carImgWrapper {
+  height: 63px;
+  width: 148px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .img {
+    width: 148px;
+  }
+}
+
+@media (min-width: 768px) {
+  .colorsContainer {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

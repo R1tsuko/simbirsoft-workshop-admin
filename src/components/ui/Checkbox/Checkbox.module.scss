@@ -1,0 +1,47 @@
+@import '../../../assets/styles/colors.scss';
+
+.checkboxContainer {
+  line-height: 13px;
+  .input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    & + .label::before {
+      content: '';
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      box-sizing: border-box;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #becad6;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin-right: 8.5px;
+      border-radius: 1px;
+    }
+
+    &:checked + label {
+      color: $main-black;
+      &::before {
+        background-image: url('../../../assets/icons/CheckboxCheck.svg');
+        border-color: $main-accent;
+      }
+    }
+
+    // &:disabled + label {
+    //   opacity: 50%;
+    // }
+  }
+
+  .label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    font-size: 10px;
+    letter-spacing: -0.175439px;
+    color: #999999;
+  }
+}
