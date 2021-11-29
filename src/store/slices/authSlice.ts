@@ -7,7 +7,8 @@ import {
   clearTokensInLocalStorage,
 } from '../../utils/helpers/authHelpers';
 import { authApi } from '../../api';
-import { ILoginData, ILoginResponseData } from '../../utils/types';
+import { ILoginData } from '../../utils/types/formTypes';
+import { ILoginResponseData } from '../../utils/types/apiTypes';
 import { RootState, AppDispatch } from '../store';
 
 export interface IAuthState {

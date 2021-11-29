@@ -9,7 +9,7 @@ import {
   selectIsSubmitting,
 } from '../../../store/slices/authSlice';
 import Loader from '../../ui/Loader/Loader';
-import { ILoginData } from '../../../utils/types';
+import { ILoginData } from '../../../utils/types/formTypes';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import styles from './LoginForm.module.scss';
@@ -22,12 +22,12 @@ const LoginForm = () => {
   const schema = yup.object({
     username: yup
       .string()
-      .max(15, 'Не более 15 символов')
-      .required('Это поле обязательно к заполнению'),
+      .max(15)
+      .required(),
     password: yup
       .string()
-      .max(15, 'Не более 15 символов')
-      .required('Это поле обязательно к заполнению'),
+      .max(15)
+      .required(),
   });
 
   const {
@@ -57,9 +57,8 @@ const LoginForm = () => {
           <div className={styles.inputsContainer}>
             <Input
               labelText='Почта'
-              id='username'
               type='text'
-              registerReturn={register('username', {
+              {...register('username', {
                 required: true,
                 maxLength: 15,
               })}
@@ -67,9 +66,8 @@ const LoginForm = () => {
             />
             <Input
               labelText='Пароль'
-              id='password'
               type='password'
-              registerReturn={register('password', {
+              {...register('password', {
                 required: true,
               })}
               errorMessage={errors.password?.message}

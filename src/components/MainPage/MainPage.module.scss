@@ -19,10 +19,6 @@
     box-sizing: border-box;
 
     .alertContainer {
-
-      .icon {
-        margin-right: 8px;
-      }
       position: absolute;
       top: 0;
       left: 0;
@@ -33,12 +29,22 @@
       font-size: 13px;
       padding: 13.5px 25px 13.5px 25px;
       box-sizing: border-box;
+      transform: translateY(-100%);
+      transition: all 0.4s;
+
+      &.active {
+        transform: translateY(0);
+      }
+
+      .icon {
+        margin-right: 8px;
+      }
     }
 
     &::-webkit-scrollbar {
       width: 10px;
       background-color: $gray-light;
-  
+
       &-thumb {
         background: $gray-dark;
         height: 30px;

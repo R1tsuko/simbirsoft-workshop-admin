@@ -3,6 +3,16 @@
 
 .selectContainer {
   position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  .label {
+    font-size: 10.5px;
+    color: $main-black;
+    display: block;
+    margin-bottom: 8px;
+  }
 
   .select {
     width: 100%;
@@ -18,7 +28,7 @@
   }
   .arrows {
     right: 13px;
-    top: 11px;
+    bottom: 11px;
     position: absolute;
   }
 }

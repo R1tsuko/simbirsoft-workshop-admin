@@ -1,30 +1,29 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import classNames from 'classnames';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import styles from './Input.module.scss';
 
 interface IInputProps {
   type: 'text' | 'textbox' | 'password';
   placeholder?: string;
   blackText?: boolean;
+  registerReturn?: UseFormRegisterReturn;
   errorMessage?: string;
+  id: string;
   labelText: string;
-  name: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, IInputProps>(
   (
     {
       placeholder,
+      registerReturn,
       type,
       errorMessage,
+      id,
       labelText,
       blackText,
-      name,
-      onChange,
-      onBlur,
     }: IInputProps,
     ref
   ) => (
@@ -33,7 +32,7 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>(
         [styles.black]: blackText,
       })}
     >
-      <label className={styles.label} htmlFor={name}>
+      <label className={styles.label} htmlFor={id}>
         {labelText}
       </label>
       <span className={styles.inputErrorMessageWrapper}>
@@ -41,13 +40,11 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>(
       </span>
       <input
         className={styles.input}
-        name={name}
-        id={name}
+        id={id}
         type={type}
         placeholder={placeholder}
+        {...registerReturn}
         ref={ref}
-        onChange={onChange}
-        onBlur={onBlur}
       />
     </div>
   )
@@ -55,10 +52,9 @@ const Input = React.forwardRef<HTMLInputElement, IInputProps>(
 
 Input.defaultProps = {
   placeholder: '',
+  registerReturn: undefined,
   errorMessage: '',
   blackText: false,
-  onChange: undefined,
-  onBlur: undefined,
 };
 
 export default Input;

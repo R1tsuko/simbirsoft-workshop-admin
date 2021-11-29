@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {  rateApi } from '../../../../api';
-import {  IRateId, ListFormFields } from '../../../../utils/types';
+import { rateApi } from '../../../../api';
+import { IRateId } from '../../../../utils/types/entityTypes';
+import { ListFormFields } from '../../../../utils/types/formTypes';
 import List from '../../../ui/List/List';
 import Table from '../../../ui/Table/Table';
 import styles from './RatesTab.module.scss';
@@ -19,18 +20,23 @@ const RatesTab = () => {
   const [rates, setRates] = useState<Array<IRateId>>([]);
 
   useEffect(() => {
-    rateApi.getRates  ().then((resp) => setRates(resp.data));
+    rateApi.getRates().then((resp) => setRates(resp.data));
   }, []);
 
   return (
     <div className={styles.tabContainer}>
       <List formFields={listFormFields}>
         <Table
-          headersData={{ name: 'Название', unit: 'Ед. изм', price: 'Цена за ед. изм' }}
+          headersData={{
+            name: 'Название',
+            unit: 'Ед. изм',
+            price: 'Цена за ед. изм',
+          }}
           rows={rates.map((rate) => ({
             name: rate.rateTypeId.name,
             unit: rate.rateTypeId.unit,
             price: rate.price,
+            link: '/admin/edit/rate',
           }))}
         />
       </List>

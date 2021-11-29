@@ -1,5 +1,5 @@
 import { APP_SECRET, TOKENS_DETAILS_NAME } from '../constants';
-import { ITokensInfo } from '../types';
+import { ITokensInfo } from '../types/commonTypes';
 
 export const getRandomHash = (len: number): string => {
   let result = '';
