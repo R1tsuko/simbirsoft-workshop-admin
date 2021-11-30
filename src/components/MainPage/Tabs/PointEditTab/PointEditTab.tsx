@@ -16,14 +16,10 @@ import Input from '../../../ui/Input/Input';
 import EditTabOptions from '../../../ui/EditTabOptions/EditTabOptions';
 import EditTabCard from '../../../ui/EditTabCard/EditTabCard';
 import Select from '../../../ui/Select/Select';
+import { pointFormSchema } from '../../../../utils/validationSchemas';
 import styles from './PointEditTab.module.scss';
 
 const PointEditTab = () => {
-  const schema = yup.object({
-    name: yup.string().max(25).required(),
-    address: yup.string().max(40).required(),
-  });
-
   const point = useAppSelector(selectEditingPoint);
   const cities = useAppSelector(selectCities);
   const isSubmitting = useAppSelector(selectIsPointSubmitting);
@@ -39,7 +35,7 @@ const PointEditTab = () => {
       address: point?.address,
       cityId: point?.cityId?.id,
     },
-    resolver: yupResolver(schema),
+    resolver: yupResolver(pointFormSchema),
   });
 
   useEffect(() => {

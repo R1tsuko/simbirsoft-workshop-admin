@@ -1,5 +1,4 @@
 import React, { ReactNode, useEffect } from 'react';
-import classNames from 'classnames';
 import { Route } from 'react-router-dom';
 import {
   initializeApp,
@@ -21,6 +20,7 @@ import CarEditTab from './Tabs/CarEditTab/CarEditTab';
 import PointEditTab from './Tabs/PointEditTab/PointEditTab';
 import RateEditTab from './Tabs/RateEditTab/RateEditTab';
 import Loader from '../ui/Loader/Loader';
+import Alert from '../ui/Alert/Alert';
 import styles from './MainPage.module.scss';
 
 interface IRouteWithTitleProps {
@@ -71,27 +71,7 @@ const MainPage = () => {
           <Loader />
         ) : (
           <>
-            <div
-              className={classNames(styles.alertContainer, {
-                [styles.active]: isAlertOpened,
-              })}
-            >
-              <svg
-                width='14'
-                height='10'
-                viewBox='0 0 14 10'
-                xmlns='http://www.w3.org/2000/svg'
-                className={styles.icon}
-              >
-                <path
-                  xmlns='http://www.w3.org/2000/svg'
-                  d='M4.63132 7.88963L1.54946 4.78001L0.5 5.83147L4.63132 10L13.5 1.05145L12.4579 0L4.63132 7.88963Z'
-                  fill='white'
-                />
-              </svg>
-              {alertMessage}
-            </div>
-
+            <Alert message={alertMessage} isOpened={isAlertOpened} />
             <RouteWithTitle title='Заказы' path='/admin/orders'>
               <OrdersTab />
             </RouteWithTitle>

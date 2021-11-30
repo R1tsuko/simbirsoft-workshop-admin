@@ -57,8 +57,6 @@ Input.defaultProps = {
   placeholder: '',
   errorMessage: '',
   blackText: false,
-  onChange: undefined,
-  onBlur: undefined,
 };
 
 export default Input;

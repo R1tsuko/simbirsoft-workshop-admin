@@ -52,7 +52,6 @@ const Select: React.FC<ISelectProps> = ({ options, name, labelText, registerRetu
 
 Select.defaultProps = {
   labelText: '',
-  registerReturn: undefined,
 };
 
 export default Select;

@@ -1,3 +1,5 @@
+import { setLocale } from 'yup';
+import { ICarFormData } from '../types/formTypes';
 import { IPostCarData } from '../types/apiTypes';
 import { BASE_URL } from '../constants';
 import { ICarId, ICityId, IPointId } from '../types/entityTypes';
@@ -47,9 +49,90 @@ export const postCarDataToFormData = (postCarData: IPostCarData) => {
         formData.append(key, postCarData.categoryId.id);
         break;
       default:
-        formData.append(key, postCarData[key as keyof IPostCarData].toString());
+        if (postCarData[key as keyof IPostCarData])
+          formData.append(
+            key,
+            postCarData[key as keyof IPostCarData].toString()
+          );
     }
   });
 
   return formData;
 };
+
+export const mapCarFormDataToPostCarData = ({
+  description,
+  name,
+  imageFileList,
+  priceMin,
+  priceMax,
+  categoryId,
+  colors,
+  tank,
+}: ICarFormData): IPostCarData => ({
+  name,
+  description,
+  thumbnail: imageFileList[0],
+  priceMin,
+  priceMax,
+  categoryId: { id: categoryId },
+  colors: colors.map((color) => color.name),
+  tank,
+});
+
+export const setYupLocale = () => {
+  setLocale({
+    mixed: {
+      required: 'Это поле обязятельно к заполнению',
+      notType: ({ type }) => {
+        let translatedType;
+        switch (type) {
+          case 'number':
+            translatedType = 'число';
+            break;
+          case 'string':
+            translatedType = 'строку';
+            break;
+          default:
+            break;
+        }
+        return `Введите ${translatedType}`;
+      },
+    },
+    string: {
+      max: ({ max }) => `Не более ${max} символов`,
+    },
+    number: {
+      positive: 'Число в поле должно быть положительным',
+      integer: 'Число в поле должно быть целым',
+      min: ({ min }) => `Число должно быть больше ${min}`,
+      max: ({ max }) => `Число должно быть меньше ${max}`,
+    },
+  });
+};
+
+export const calculateCarFormProgress =
+  (isCreatingCar: boolean) => (formValues: ICarFormData) => {
+    const stepsCount = Object.keys(formValues).length;
+    let completedStepsCount = 0;
+    Object.keys(formValues).forEach((key) => {
+      switch (key) {
+        case 'imageFileList':
+          if (!isCreatingCar || formValues.imageFileList.length) {
+            completedStepsCount += 1;
+          }
+          break;
+        case 'colors':
+          if (formValues.colors.length) completedStepsCount += 1;
+          break;
+        default:
+          {
+            const value = formValues[key as keyof ICarFormData];
+            if (value || typeof value === 'number') completedStepsCount += 1;
+          }
+          break;
+      }
+    });
+
+    return Math.ceil((completedStepsCount / stepsCount) * 100).toString();
+  };

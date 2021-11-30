@@ -30,7 +30,6 @@ const Button: React.FC<IButtonProps> = ({ text, type, red, onClick, gray, disabl
 Button.defaultProps = {
   red: false,
   gray: false,
-  onClick: undefined,
   disabled: false,
 };
 

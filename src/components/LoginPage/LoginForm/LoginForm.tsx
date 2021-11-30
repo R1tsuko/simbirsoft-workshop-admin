@@ -12,6 +12,7 @@ import Loader from '../../ui/Loader/Loader';
 import { ILoginData } from '../../../utils/types/formTypes';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
+import { loginFormSchema } from '../../../utils/validationSchemas';
 import styles from './LoginForm.module.scss';
 
 const LoginForm = () => {
@@ -19,22 +20,11 @@ const LoginForm = () => {
   const isError = useAppSelector(selectIsLoginError);
   const isSubmitting = useAppSelector(selectIsSubmitting);
 
-  const schema = yup.object({
-    username: yup
-      .string()
-      .max(15)
-      .required(),
-    password: yup
-      .string()
-      .max(15)
-      .required(),
-  });
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginData>({ resolver: yupResolver(schema) });
+  } = useForm<ILoginData>({ resolver: yupResolver(loginFormSchema) });
 
   const onSubmit = handleSubmit((data) => dispatch(login(data)));
 

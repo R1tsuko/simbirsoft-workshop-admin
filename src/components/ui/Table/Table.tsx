@@ -22,7 +22,10 @@ function Table<T extends Record<string, string>>({
       <thead className={styles.header}>
         <tr className={styles.row}>
           {Object.keys(headersData).map((headerName) => (
-            <th className={classNames(styles.cell, styles.headerText)}>
+            <th
+              className={classNames(styles.cell, styles.headerText)}
+              key={headerName}
+            >
               {headersData[headerName]}
             </th>
           ))}

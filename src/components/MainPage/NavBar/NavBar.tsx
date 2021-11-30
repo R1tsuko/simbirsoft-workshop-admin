@@ -63,18 +63,8 @@ const navbarData: Array<IStyledNavlinkProps> = [
     type: 'list',
   },
   {
-    to: '/admin/rates',
-    text: 'Список тарифов',
-    type: 'list',
-  },
-  {
     to: '/admin/edit/car',
     text: 'Карточка автомобиля',
-    type: 'editTab',
-  },
-  {
-    to: '/admin/edit/rate',
-    text: 'Карточка тарифа',
     type: 'editTab',
   },
   {
