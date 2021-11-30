@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/simbirsoft-workshop-admin/static/css/main.31bdfff5.chunk.css",
-    "main.js": "/simbirsoft-workshop-admin/static/js/main.b4edcc13.chunk.js",
-    "main.js.map": "/simbirsoft-workshop-admin/static/js/main.b4edcc13.chunk.js.map",
+    "main.css": "/simbirsoft-workshop-admin/static/css/main.ce7e31d0.chunk.css",
+    "main.js": "/simbirsoft-workshop-admin/static/js/main.b9367550.chunk.js",
+    "main.js.map": "/simbirsoft-workshop-admin/static/js/main.b9367550.chunk.js.map",
     "runtime-main.js": "/simbirsoft-workshop-admin/static/js/runtime-main.4572be3d.js",
     "runtime-main.js.map": "/simbirsoft-workshop-admin/static/js/runtime-main.4572be3d.js.map",
-    "static/js/2.410fcc09.chunk.js": "/simbirsoft-workshop-admin/static/js/2.410fcc09.chunk.js",
-    "static/js/2.410fcc09.chunk.js.map": "/simbirsoft-workshop-admin/static/js/2.410fcc09.chunk.js.map",
+    "static/js/2.036fe80d.chunk.js": "/simbirsoft-workshop-admin/static/js/2.036fe80d.chunk.js",
+    "static/js/2.036fe80d.chunk.js.map": "/simbirsoft-workshop-admin/static/js/2.036fe80d.chunk.js.map",
     "index.html": "/simbirsoft-workshop-admin/index.html",
-    "static/css/main.31bdfff5.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.31bdfff5.chunk.css.map",
-    "static/js/2.410fcc09.chunk.js.LICENSE.txt": "/simbirsoft-workshop-admin/static/js/2.410fcc09.chunk.js.LICENSE.txt",
+    "static/css/main.ce7e31d0.chunk.css.map": "/simbirsoft-workshop-admin/static/css/main.ce7e31d0.chunk.css.map",
+    "static/js/2.036fe80d.chunk.js.LICENSE.txt": "/simbirsoft-workshop-admin/static/js/2.036fe80d.chunk.js.LICENSE.txt",
     "static/media/CheckIcon.01ad4403.svg": "/simbirsoft-workshop-admin/static/media/CheckIcon.01ad4403.svg",
     "static/media/Checkbox.module.scss": "/simbirsoft-workshop-admin/static/media/CheckboxCheck.919d0fae.svg",
     "static/media/DefaultAvatar.7cf6ff97.jpg": "/simbirsoft-workshop-admin/static/media/DefaultAvatar.7cf6ff97.jpg",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4572be3d.js",
-    "static/js/2.410fcc09.chunk.js",
-    "static/css/main.31bdfff5.chunk.css",
-    "static/js/main.b4edcc13.chunk.js"
+    "static/js/2.036fe80d.chunk.js",
+    "static/css/main.ce7e31d0.chunk.css",
+    "static/js/main.b9367550.chunk.js"
   ]
 }
