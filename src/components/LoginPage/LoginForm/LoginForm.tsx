@@ -9,9 +9,10 @@ import {
   selectIsSubmitting,
 } from '../../../store/slices/authSlice';
 import Loader from '../../ui/Loader/Loader';
-import { ILoginData } from '../../../utils/types';
+import { ILoginData } from '../../../utils/types/formTypes';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
+import { loginFormSchema } from '../../../utils/validationSchemas';
 import styles from './LoginForm.module.scss';
 
 const LoginForm = () => {
@@ -19,22 +20,11 @@ const LoginForm = () => {
   const isError = useAppSelector(selectIsLoginError);
   const isSubmitting = useAppSelector(selectIsSubmitting);
 
-  const schema = yup.object({
-    username: yup
-      .string()
-      .max(15, 'Не более 15 символов')
-      .required('Это поле обязательно к заполнению'),
-    password: yup
-      .string()
-      .max(15, 'Не более 15 символов')
-      .required('Это поле обязательно к заполнению'),
-  });
-
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginData>({ resolver: yupResolver(schema) });
+  } = useForm<ILoginData>({ resolver: yupResolver(loginFormSchema) });
 
   const onSubmit = handleSubmit((data) => dispatch(login(data)));
 
@@ -57,9 +47,8 @@ const LoginForm = () => {
           <div className={styles.inputsContainer}>
             <Input
               labelText='Почта'
-              id='username'
               type='text'
-              registerReturn={register('username', {
+              {...register('username', {
                 required: true,
                 maxLength: 15,
               })}
@@ -67,9 +56,8 @@ const LoginForm = () => {
             />
             <Input
               labelText='Пароль'
-              id='password'
               type='password'
-              registerReturn={register('password', {
+              {...register('password', {
                 required: true,
               })}
               errorMessage={errors.password?.message}

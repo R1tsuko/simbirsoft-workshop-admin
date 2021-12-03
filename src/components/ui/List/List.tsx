@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListFormFields } from '../../../utils/types';
+import { ListFormFields } from '../../../utils/types/formTypes';
 import styles from './List.module.scss';
 import ListForm from './ListForm/ListForm';
 import Pages from './Pages/Pages';

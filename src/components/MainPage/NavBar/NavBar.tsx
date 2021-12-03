@@ -63,36 +63,21 @@ const navbarData: Array<IStyledNavlinkProps> = [
     type: 'list',
   },
   {
-    to: '/admin/rates',
-    text: 'Список тарифов',
-    type: 'list',
-  },
-  {
-    to: '/admin/new/car',
+    to: '/admin/edit/car',
     text: 'Карточка автомобиля',
     type: 'editTab',
   },
   {
-    to: '/admin/new/rate',
-    text: 'Карточка тарифа',
-    type: 'editTab',
-  },
-  {
-    to: '/admin/new/point',
+    to: '/admin/edit/point',
     text: 'Карточка пункта',
     type: 'editTab',
-  },
-  {
-    to: '/admin/error',
-    text: 'Страница ошибки(для проверки)',
-    type: 'list',
   },
 ];
 
 const NavBar = () => (
   <nav className={styles.nav}>
     {navbarData.map(({ text, to, type }) => (
-      <StyledNavLink text={text} to={to} type={type} />
+      <StyledNavLink text={text} to={to} type={type} key={to} />
     ))}
   </nav>
 );

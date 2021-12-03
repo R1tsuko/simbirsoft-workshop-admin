@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListFormFields } from '../../../../utils/types';
+import { ListFormFields } from '../../../../utils/types/formTypes';
 import Button from '../../Button/Button';
 import Select from '../../Select/Select';
 import styles from './ListForm.module.scss';
@@ -12,7 +12,7 @@ const ListForm: React.FC<IListFormProps> = ({ fields }) => (
   <form className={styles.form}>
     <div className={styles.fieldsContainer}>
       {fields.map((field) => (
-        <div className={styles.fieldWrapper}>
+        <div className={styles.fieldWrapper} key={field.name}>
           <Select name={field.name} options={field.options} />
         </div>
       ))}

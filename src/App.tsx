@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import LoginPage from './components/LoginPage/LoginPage';
-import styles from './App.module.scss';
 import { useAppDispatch, useAppSelector } from './utils/hooks';
-import {
-  selectIsLoggedIn,
-  tryAutoLogin,
-} from './store/slices/authSlice';
+import { selectIsLoggedIn, tryAutoLogin } from './store/slices/authSlice';
 import MainPage from './components/MainPage/MainPage';
+import styles from './App.module.scss';
 
 const App = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);

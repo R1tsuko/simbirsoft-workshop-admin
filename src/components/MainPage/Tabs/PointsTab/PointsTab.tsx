@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { pointApi } from '../../../../api';
+import { pickEditingPoint } from '../../../../store/slices/editSlice';
+import { useAppDispatch } from '../../../../utils/hooks';
 import { getCityName } from '../../../../utils/helpers/commonHelpers';
-import { IPointId, ListFormFields } from '../../../../utils/types';
+import { ListFormFields } from '../../../../utils/types/formTypes';
+import { IPointId } from '../../../../utils/types/entityTypes';
 import List from '../../../ui/List/List';
 import Table from '../../../ui/Table/Table';
 import styles from './PointsTab.module.scss';
@@ -18,6 +21,7 @@ const listFormFields: ListFormFields = [
 
 const PointsTab = () => {
   const [points, setPoints] = useState<Array<IPointId>>([]);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     pointApi.getPoints().then((resp) => setPoints(resp.data));
@@ -32,6 +36,10 @@ const PointsTab = () => {
             name: point.name,
             city: getCityName(point.cityId),
             address: point.address,
+            link: '/admin/edit/point',
+            onRowClick: () => {
+              dispatch(pickEditingPoint(point));
+            },
           }))}
         />
       </List>

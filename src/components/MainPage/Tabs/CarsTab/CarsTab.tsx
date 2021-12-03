@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { carApi } from '../../../../api';
+import { pickEditingCar } from '../../../../store/slices/editSlice';
 import { getCarImg } from '../../../../utils/helpers/commonHelpers';
-import { ICarId, ListFormFields } from '../../../../utils/types';
+import { useAppDispatch } from '../../../../utils/hooks';
+import { ICarId } from '../../../../utils/types/entityTypes';
+import { ListFormFields } from '../../../../utils/types/formTypes';
 import List from '../../../ui/List/List';
 import Table from '../../../ui/Table/Table';
 import styles from './CarsTab.module.scss';
@@ -9,7 +12,9 @@ import styles from './CarsTab.module.scss';
 const ColorsContainer = ({ colors }: { colors: Array<string> }) => (
   <div className={styles.colorsContainer}>
     {colors.map((color) => (
-      <div className={styles.color}>{color}</div>
+      <div className={styles.color} key={color}>
+        {color}
+      </div>
     ))}
   </div>
 );
@@ -39,6 +44,7 @@ const listFormFields: ListFormFields = [
 
 const CarsTab = () => {
   const [cars, setCars] = useState<Array<ICarId>>([]);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     carApi.getCars().then((resp) => setCars(resp.data));
@@ -63,6 +69,10 @@ const CarsTab = () => {
             colors: <ColorsContainer colors={car.colors} />,
             number: car.number,
             description: car.description,
+            link: '/admin/edit/car',
+            onRowClick: () => {
+              dispatch(pickEditingCar(car));
+            },
           }))}
         />
       </List>

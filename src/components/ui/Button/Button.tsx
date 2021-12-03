@@ -8,17 +8,20 @@ interface IButtonProps {
   type: 'button' | 'submit' | 'reset';
   red?: boolean;
   gray?: boolean;
-  onClick?: () => void;
+  disabled?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<IButtonProps> = ({ text, type, red, onClick, gray }) => (
+const Button: React.FC<IButtonProps> = ({ text, type, red, onClick, gray, disabled }) => (
   <button
     className={classNames(styles.button, {
       [styles.red]: red,
       [styles.gray]: gray,
+      [styles.disabled]: disabled,
     })}
     type={type}
     onClick={onClick}
+    disabled={disabled}
   >
     {text}
   </button>
@@ -27,7 +30,7 @@ const Button: React.FC<IButtonProps> = ({ text, type, red, onClick, gray }) => (
 Button.defaultProps = {
   red: false,
   gray: false,
-  onClick: undefined,
+  disabled: false,
 };
 
 export default Button;

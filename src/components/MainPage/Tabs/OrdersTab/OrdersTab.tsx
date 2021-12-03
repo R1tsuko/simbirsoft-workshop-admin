@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { orderApi } from '../../../../api';
-import { IOrdersResponseData, ListFormFields } from '../../../../utils/types';
+import { IOrdersResponseData } from '../../../../utils/types/apiTypes';
+import { ListFormFields } from '../../../../utils/types/formTypes';
 import List from '../../../ui/List/List';
 import OrderListItem from './OrdersListItem/OrderListItem';
 import {
@@ -64,6 +65,7 @@ const OrdersTab = () => {
             price,
             dateFrom,
             dateTo,
+            id,
           }) => (
             <OrderListItem
               carName={getCarName(carId)}
@@ -77,6 +79,7 @@ const OrdersTab = () => {
               price={price}
               dateFrom={dateFrom}
               dateTo={dateTo}
+              key={id}
             />
           )
         )}

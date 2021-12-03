@@ -16,6 +16,7 @@
         flex-grow: 1;
       }
       .plusButton {
+        flex-shrink: 0;
         cursor: pointer;
         width: 30px;
         height: 30px;
@@ -29,12 +30,23 @@
 
     .colorsList {
       margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       .color {
+        position: relative;
         font-size: 10px;
         display: flex;
         align-items: center;
         color: #495057;
         gap: 8px;
+
+        .input {
+          position: absolute;
+          top: 0;
+          opacity: 0;
+          z-index: -1;
+        }
 
         .removeButton {
           cursor: pointer;

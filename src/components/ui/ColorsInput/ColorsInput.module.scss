@@ -1,0 +1,70 @@
+@import '../../../assets/styles/mixins.scss';
+@import '../../../assets/styles/colors.scss';
+
+.colorsFieldContainer {
+  height: 200px;
+  .field {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    .colorsInputWrapper {
+      flex-grow: 1;
+    }
+    .plusButton {
+      flex-shrink: 0;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include field;
+      @include button-states;
+    }
+  }
+
+  .colorsList {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    .color {
+      position: relative;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      color: #495057;
+      gap: 8px;
+
+      .input {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .removeButton {
+        cursor: pointer;
+        width: 14px;
+        height: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include field;
+        @include button-states;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .colorsFieldContainer {
+    width: 320px;
+    .field {
+      width: 320px;
+    }
+    .colorsList {
+      margin-top: 16px;
+    }
+  }
+}

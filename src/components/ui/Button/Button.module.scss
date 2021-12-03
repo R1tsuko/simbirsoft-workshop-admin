@@ -15,10 +15,14 @@
   @include button-states;
 
   &.red {
-    background-color: #C4183C;
+    background-color: #c4183c;
   }
   &.gray {
     color: $cobalt;
     background: #e9ecef;
+  }
+  &.disabled {
+    cursor: auto;
+    opacity: 30%;
   }
 }

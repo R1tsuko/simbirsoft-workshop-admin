@@ -1,18 +1,28 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { ISearchItem } from '../../../utils/types';
+import { UseFormRegisterReturn } from 'react-hook-form';
+import { ISearchItem } from '../../../utils/types/commonTypes';
 import styles from './Select.module.scss';
 
 interface ISelectProps {
-  placeholder?: string;
   options: Array<ISearchItem>;
   name: string;
+  labelText?: string;
+  registerReturn?: UseFormRegisterReturn;
 }
 
-const Select: React.FC<ISelectProps> = ({ placeholder, options, name }) => (
+const Select: React.FC<ISelectProps> = ({ options, name, labelText, registerReturn }) => (
   <div className={styles.selectContainer}>
-    <select className={styles.select} name={name} placeholder={placeholder}>
+    {labelText && (
+      <label className={styles.label} htmlFor={name}>
+        {labelText}
+      </label>
+    )}
+    <select className={styles.select} name={name} id={name} {...registerReturn}>
       {options.map((option) => (
-        <option value={option.id} key={option.id}>{option.value}</option>
+        <option value={option.id} key={option.id}>
+          {option.value}
+        </option>
       ))}
     </select>
 
@@ -41,7 +51,7 @@ const Select: React.FC<ISelectProps> = ({ placeholder, options, name }) => (
 );
 
 Select.defaultProps = {
-  placeholder: '',
+  labelText: '',
 };
 
 export default Select;
