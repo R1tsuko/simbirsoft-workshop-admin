@@ -1,10 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { carApi } from '../../../../api';
+import React, { useEffect } from 'react';
 import { pickEditingCar } from '../../../../store/slices/editSlice';
+import {
+  getCars,
+  selectCarsCount,
+  selectCarsFilters,
+  selectCarsPage,
+  selectCarsToShow,
+  selectIsCarsSubmitting,
+  setCarsFiltersAndPage,
+} from '../../../../store/slices/listSlice';
+import { selectCarCategories } from '../../../../store/slices/mainSlice';
+import {
+  CARS_ON_PAGE,
+  DEFAULT_LIST_FORM_ITEM_ID,
+} from '../../../../utils/constants';
 import { getCarImg } from '../../../../utils/helpers/commonHelpers';
-import { useAppDispatch } from '../../../../utils/hooks';
-import { ICarId } from '../../../../utils/types/entityTypes';
-import { ListFormFields } from '../../../../utils/types/formTypes';
+import { useAppDispatch, useAppSelector } from '../../../../utils/hooks';
+import {
+  ICarsListFormData,
+  ListFormFields,
+} from '../../../../utils/types/formTypes';
 import List from '../../../ui/List/List';
 import Table from '../../../ui/Table/Table';
 import styles from './CarsTab.module.scss';
@@ -25,34 +40,55 @@ const CarImgWrapper = ({ img }: { img: string }) => (
   </div>
 );
 
-const listFormFields: ListFormFields = [
-  {
-    name: 'color',
-    options: [
-      { value: 'Любой', id: '1' },
-      { value: 'Красный', id: '2' },
-    ],
-  },
-  {
-    name: 'category',
-    options: [
-      { value: 'Люкс', id: '1' },
-      { value: 'Спорт', id: '2' },
-    ],
-  },
-];
-
 const CarsTab = () => {
-  const [cars, setCars] = useState<Array<ICarId>>([]);
+  const cars = useAppSelector(selectCarsToShow);
+  const carsFilters = useAppSelector(selectCarsFilters);
+  const carsCount = useAppSelector(selectCarsCount);
+  const page = useAppSelector(selectCarsPage);
+  const categories = useAppSelector(selectCarCategories);
+  const isSubmitting = useAppSelector(selectIsCarsSubmitting);
   const dispatch = useAppDispatch();
 
+  const onPageChange = (newPage: number) => {
+    dispatch(setCarsFiltersAndPage({ formData: carsFilters, page: newPage }));
+  };
+
+  const onApplyFilters = (formData: ICarsListFormData) => {
+    dispatch(setCarsFiltersAndPage({ formData, page: 0 }));
+  };
+
   useEffect(() => {
-    carApi.getCars().then((resp) => setCars(resp.data));
-  }, []);
+    dispatch(getCars({ page, listFormData: carsFilters }));
+  }, [page, carsFilters]);
+
+  const listFormFields: ListFormFields<ICarsListFormData> = {
+    categoryId: {
+      type: 'select',
+      options: [
+        { value: 'Все категории', id: DEFAULT_LIST_FORM_ITEM_ID },
+        ...categories.map((category) => ({
+          value: category.name,
+          id: category.id,
+        })),
+      ],
+    },
+    name: {
+      type: 'input',
+      placeholder: 'Название',
+    },
+  };
 
   return (
     <div className={styles.tabContainer}>
-      <List formFields={listFormFields}>
+      <List
+        formFields={listFormFields}
+        onPageChange={onPageChange}
+        pagesCount={Math.ceil(carsCount / CARS_ON_PAGE)}
+        page={page}
+        onApplyFilters={onApplyFilters}
+        defaultFormValues={carsFilters}
+        isSubmitting={isSubmitting}
+      >
         <Table
           headersData={{
             model: 'Модель',

@@ -6,5 +6,5 @@ export interface ITokensInfo {
 
 export interface ISearchItem {
   value: string;
-  id: string;
+  id: string | undefined;
 }

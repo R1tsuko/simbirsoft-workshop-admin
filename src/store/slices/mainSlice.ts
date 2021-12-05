@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ICarCategoryId, ICityId } from '../../utils/types/entityTypes';
-import { carApi, pointApi } from '../../api';
+import {
+  ICarCategoryId,
+  ICityId,
+  IOrderStatusId,
+} from '../../utils/types/entityTypes';
+import { carApi, pointApi, orderApi } from '../../api';
 import { RootState } from '../store';
 
 export interface IMainState {
@@ -9,6 +13,7 @@ export interface IMainState {
   alertMessage: string | null;
   carCategories: Array<ICarCategoryId>;
   cities: Array<ICityId>;
+  orderStatuses: Array<IOrderStatusId>;
 }
 
 const initialState: IMainState = {
@@ -16,16 +21,18 @@ const initialState: IMainState = {
   alertMessage: null,
   carCategories: [],
   cities: [],
+  orderStatuses: [],
 };
 
 export const initializeApp = createAsyncThunk(
   'main/initializeApp',
   async () => {
-    const [categories, cities] = await Promise.all([
+    const [categories, cities, orderStatuses] = await Promise.all([
       carApi.getCategories(),
       pointApi.getCities(),
+      orderApi.getOrderStatuses(),
     ]);
-    return { categories, cities };
+    return { categories, cities, orderStatuses };
   }
 );
 
@@ -47,6 +54,7 @@ export const mainSlice = createSlice({
       .addCase(initializeApp.fulfilled, (state, action) => {
         state.carCategories = action.payload.categories;
         state.cities = action.payload.cities;
+        state.orderStatuses = action.payload.orderStatuses
         state.isInitializing = false;
       });
   },
@@ -60,5 +68,6 @@ export const selectCarCategories = (state: RootState) =>
   state.main.carCategories;
 export const selectAlertMessage = (state: RootState) => state.main.alertMessage;
 export const selectCities = (state: RootState) => state.main.cities;
+export const selectOrderStatuses = (state: RootState) => state.main.orderStatuses;
 
 export default mainSlice.reducer;

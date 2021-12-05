@@ -1,3 +1,4 @@
+import { DEFAULT_LIST_FORM_ITEM_ID } from '../constants';
 import { ISearchItem } from './commonTypes';
 
 export interface ICarFormData {
@@ -16,10 +17,26 @@ export interface ILoginData {
   password: string;
 }
 
-export type ListFormFields = Array<{
-  name: string;
-  options: Array<ISearchItem>;
-}>;
+export interface IOrdersListFormData {
+  cityId: string;
+  orderStatusId: string;
+  dateFrom: number | typeof DEFAULT_LIST_FORM_ITEM_ID;
+}
+
+export interface ICarsListFormData {
+  categoryId: string;
+  name: string | typeof DEFAULT_LIST_FORM_ITEM_ID;
+}
+
+export interface IPointsListFormData {
+  cityId: string;
+}
+
+export type ListFormFields<T> = Record<
+  keyof T,
+  | { type: 'input'; placeholder: string }
+  | { type: 'select'; options: Array<ISearchItem> }
+>;
 
 export interface IPointFormData {
   name: string;

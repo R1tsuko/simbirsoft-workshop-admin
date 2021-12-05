@@ -7,11 +7,12 @@ import {
   IRateId,
   ICarCategoryId,
   ICityId,
+  IOrderId,
+  IOrderStatusId,
 } from './utils/types/entityTypes';
 import {
   ILoginResponseData,
   IArrayResponseData,
-  IOrdersResponseData,
   IPostPointData,
 } from './utils/types/apiTypes';
 
@@ -80,22 +81,28 @@ export const authApi = {
   },
 };
 
+function getEntitiesWithParams<T>(endpoint: string) {
+  return async (params: URLSearchParams) =>
+    (
+      await instance.get<IArrayResponseData<T>>(endpoint, {
+        params,
+      })
+    ).data;
+}
+
 export const orderApi = {
-  async getOrders() {
-    const response = await instance.get<
-      IArrayResponseData<IOrdersResponseData>
-    >('db/order/?limit=5&page=0');
-    return response.data;
+  getOrders: getEntitiesWithParams<IOrderId>('db/order/'),
+
+  async getOrderStatuses() {
+    const response = await instance.get<IArrayResponseData<IOrderStatusId>>(
+      'db/orderStatus/'
+    );
+    return response.data.data;
   },
 };
 
 export const pointApi = {
-  async getPoints() {
-    const response = await instance.get<IArrayResponseData<IPointId>>(
-      'db/point'
-    );
-    return response.data;
-  },
+  getPoints: getEntitiesWithParams<IPointId>('db/point/'),
   async getCities() {
     const response = await instance.get<IArrayResponseData<ICityId>>('db/city');
     return response.data.data;
@@ -120,12 +127,8 @@ export const pointApi = {
 };
 
 export const carApi = {
-  async getCars() {
-    const response = await instance.get<IArrayResponseData<ICarId>>(
-      'db/car?limit=5&page=0'
-    );
-    return response.data;
-  },
+  getCars: getEntitiesWithParams<ICarId>('db/car/'),
+
   async getCategories() {
     const response = await instance.get<IArrayResponseData<ICarCategoryId>>(
       'db/category'

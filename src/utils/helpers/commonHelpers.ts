@@ -1,7 +1,13 @@
 import { setLocale } from 'yup';
-import { ICarFormData } from '../types/formTypes';
+import { format } from 'date-fns';
+import {
+  ICarFormData,
+  IOrdersListFormData,
+  ICarsListFormData,
+  IPointsListFormData,
+} from '../types/formTypes';
 import { IPostCarData } from '../types/apiTypes';
-import { BASE_URL } from '../constants';
+import { BASE_URL, DEFAULT_LIST_FORM_ITEM_ID } from '../constants';
 import { ICarId, ICityId, IPointId } from '../types/entityTypes';
 import defaultCar from '../../assets/images/DefaultCar.jpg';
 
@@ -136,3 +142,62 @@ export const calculateCarFormProgress =
 
     return Math.ceil((completedStepsCount / stepsCount) * 100).toString();
   };
+
+export const getFormattedDate = (date: number | Date, dateFormat: string) => {
+  if (!date) {
+    return 'Дата не найдена';
+  }
+  return format(date, dateFormat);
+};
+
+export function clearFromListFormData<T>(listFormData: T) {
+  return Object.fromEntries(
+    Object.entries(listFormData).filter(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      ([_, value]) => value !== DEFAULT_LIST_FORM_ITEM_ID && value
+    )
+  );
+}
+
+export const ordersListFormDataToURLParams = (
+  listFormData: IOrdersListFormData
+) => {
+  const params = new URLSearchParams();
+  Object.entries(clearFromListFormData(listFormData)).forEach(
+    ([key, value]) => {
+      if (key === 'dateFrom') {
+        params.append(`${key}[$gt]`, value);
+      } else {
+        params.append(key, value);
+      }
+    }
+  );
+
+  return params;
+};
+
+export const carsListFormDataToURLParams = (
+  listFormData: ICarsListFormData
+) => {
+  const params = new URLSearchParams();
+  Object.entries(clearFromListFormData(listFormData)).forEach(
+    ([key, value]) => {
+      params.append(key, value);
+    }
+  );
+
+  return params;
+};
+
+export const pointsListFormDataToURLParams = (
+  listFormData: IPointsListFormData
+) => {
+  const params = new URLSearchParams();
+  Object.entries(clearFromListFormData(listFormData)).forEach(
+    ([key, value]) => {
+      params.append(key, value);
+    }
+  );
+
+  return params;
+};

@@ -27,17 +27,7 @@ export interface ILoginResponseData {
   user_id: string;
 }
 
-export interface IOrdersResponseData {
-  cityId: ICityId | null;
-  pointId: IPointId | null;
-  orderStatusId: IOrderStatusId | null;
-  carId: ICarId | null;
-  color: string;
-  dateFrom: number;
-  dateTo: number;
-  price: number;
-  isFullTank: boolean;
-  isNeedChildChair: boolean;
-  isRightWheel: boolean;
-  id: string;
+export interface IPaginationFilters {
+  page: number;
+  limit: number;
 }

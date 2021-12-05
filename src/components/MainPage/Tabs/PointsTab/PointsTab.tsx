@@ -1,35 +1,67 @@
-import React, { useEffect, useState } from 'react';
-import { pointApi } from '../../../../api';
+import React, { useEffect } from 'react';
 import { pickEditingPoint } from '../../../../store/slices/editSlice';
-import { useAppDispatch } from '../../../../utils/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../utils/hooks';
 import { getCityName } from '../../../../utils/helpers/commonHelpers';
-import { ListFormFields } from '../../../../utils/types/formTypes';
-import { IPointId } from '../../../../utils/types/entityTypes';
+import {
+  getPoints,
+  selectIsPointsSubmitting,
+  selectPointsCount,
+  selectPointsFilters,
+  selectPointsPage,
+  selectPointsToShow,
+  setPointsFiltersAndPage,
+} from '../../../../store/slices/listSlice';
+import { DEFAULT_LIST_FORM_ITEM_ID, POINTS_ON_PAGE } from '../../../../utils/constants';
+import { selectCities } from '../../../../store/slices/mainSlice';
+import { IPointsListFormData, ListFormFields } from '../../../../utils/types/formTypes';
 import List from '../../../ui/List/List';
 import Table from '../../../ui/Table/Table';
 import styles from './PointsTab.module.scss';
 
-const listFormFields: ListFormFields = [
-  {
-    name: 'city',
-    options: [
-      { value: 'Самара', id: '1' },
-      { value: 'Ульяновск', id: '2' },
-    ],
-  },
-];
-
 const PointsTab = () => {
-  const [points, setPoints] = useState<Array<IPointId>>([]);
+  const points = useAppSelector(selectPointsToShow);
+  const pointsFilters = useAppSelector(selectPointsFilters);
+  const pointsCount = useAppSelector(selectPointsCount);
+  const page = useAppSelector(selectPointsPage);
+  const cities = useAppSelector(selectCities);
+  const isSubmitting = useAppSelector(selectIsPointsSubmitting);
   const dispatch = useAppDispatch();
 
+  const onPageChange = (newPage: number) => {
+    dispatch(
+      setPointsFiltersAndPage({ formData: pointsFilters, page: newPage })
+    );
+  };
+
+  const onApplyFilters = (formData: IPointsListFormData) => {
+    dispatch(setPointsFiltersAndPage({ formData, page: 0 }));
+  };
+
   useEffect(() => {
-    pointApi.getPoints().then((resp) => setPoints(resp.data));
-  }, []);
+    dispatch(getPoints({ page, listFormData: pointsFilters }));
+  }, [page, pointsFilters]);
+
+  const listFormFields: ListFormFields<IPointsListFormData> = {
+    cityId: {
+      type: 'select',
+      options: [
+        { value: 'Любой город', id: DEFAULT_LIST_FORM_ITEM_ID },
+        ...cities.map((city) => ({ value: city.name, id: city.id })),
+      ],
+    },
+  };
 
   return (
     <div className={styles.tabContainer}>
-      <List formFields={listFormFields}>
+      <List
+        formFields={listFormFields}
+        onPageChange={onPageChange}
+        pagesCount={Math.ceil(pointsCount / POINTS_ON_PAGE)}
+        page={page}
+        onApplyFilters={onApplyFilters}
+        defaultFormValues={pointsFilters}
+        isSubmitting={isSubmitting}
+      >
         <Table
           headersData={{ name: 'Название', city: 'Город', address: 'Адрес' }}
           rows={points.map((point) => ({

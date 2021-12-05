@@ -14,11 +14,9 @@ import OrdersTab from './Tabs/OrdersTab/OrdersTab';
 import Sidebar from './Sidebar/Sidebar';
 import PointsTab from './Tabs/PointsTab/PointsTab';
 import CarsTab from './Tabs/CarsTab/CarsTab';
-import RatesTab from './Tabs/RatesTab/RatesTab';
 import ErrorTab from './Tabs/ErrorTab/ErrorTab';
 import CarEditTab from './Tabs/CarEditTab/CarEditTab';
 import PointEditTab from './Tabs/PointEditTab/PointEditTab';
-import RateEditTab from './Tabs/RateEditTab/RateEditTab';
 import Loader from '../ui/Loader/Loader';
 import Alert from '../ui/Alert/Alert';
 import styles from './MainPage.module.scss';
@@ -81,26 +79,11 @@ const MainPage = () => {
             <RouteWithTitle path='/admin/cars' title='Авто'>
               <CarsTab />
             </RouteWithTitle>
-            <RouteWithTitle path='/admin/rates' title='Тарифы'>
-              <RatesTab />
-            </RouteWithTitle>
-            <RouteWithTitle path='/admin/new/car' title='Карточка автомобиля'>
-              <CarEditTab />
-            </RouteWithTitle>
             <RouteWithTitle path='/admin/edit/car' title='Карточка автомобиля'>
               <CarEditTab />
             </RouteWithTitle>
-            <RouteWithTitle path='/admin/new/point' title='Карточка пункта'>
-              <PointEditTab />
-            </RouteWithTitle>
             <RouteWithTitle path='/admin/edit/point' title='Карточка пункта'>
               <PointEditTab />
-            </RouteWithTitle>
-            <RouteWithTitle path='/admin/new/rate' title='Карточка тарифа'>
-              <RateEditTab />
-            </RouteWithTitle>
-            <RouteWithTitle path='/admin/edit/rate' title='Карточка тарифа'>
-              <RateEditTab />
             </RouteWithTitle>
             <Route path='/admin/error'>
               <ErrorTab />

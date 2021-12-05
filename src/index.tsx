@@ -7,12 +7,10 @@ import App from './App';
 import { store } from './store/store';
 
 ReactDOM.render(
-  <React.StrictMode>
     <HashRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </HashRouter>
-  </React.StrictMode>,
+    </HashRouter>,
   document.getElementById('root')
 );
