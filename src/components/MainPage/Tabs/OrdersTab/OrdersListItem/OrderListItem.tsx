@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { format } from 'date-fns';
 import React from 'react';
 import { DATE_FORMAT } from '../../../../../utils/constants';
+import { getFormattedDate } from '../../../../../utils/helpers/commonHelpers';
 import Checkbox from '../../../../ui/Checkbox/Checkbox';
 import styles from './OrderListItem.module.scss';
 import checkIcon from '../../../../../assets/icons/CheckIcon.svg';
@@ -47,7 +47,7 @@ const OrderListItem: React.FC<IOrderListItemProps> = ({
           <div className={styles.address}>{address}</div>
         </div>
         <div className={styles.row}>
-          {format(dateFrom, DATE_FORMAT)} — {format(dateTo, DATE_FORMAT)}
+          {getFormattedDate(dateFrom, DATE_FORMAT)} — {getFormattedDate(dateTo, DATE_FORMAT)}
         </div>
         <div className={styles.row}>
           Цвет: <span className={styles.highlighted}>{color}</span>

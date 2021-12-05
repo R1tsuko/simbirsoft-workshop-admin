@@ -20,7 +20,7 @@ const Select: React.FC<ISelectProps> = ({ options, name, labelText, registerRetu
     )}
     <select className={styles.select} name={name} id={name} {...registerReturn}>
       {options.map((option) => (
-        <option value={option.id} key={option.id}>
+        <option value={option.id} key={option.value}>
           {option.value}
         </option>
       ))}

@@ -47,6 +47,21 @@ export interface IPointId {
   cityId: ICityId | undefined;
 }
 
+export interface IOrderId {
+  cityId: ICityId | null;
+  pointId: IPointId | null;
+  orderStatusId: IOrderStatusId | null;
+  carId: ICarId | null;
+  color: string;
+  dateFrom: number;
+  dateTo: number;
+  price: number;
+  isFullTank: boolean;
+  isNeedChildChair: boolean;
+  isRightWheel: boolean;
+  id: string;
+}
+
 export interface IOrderStatusId {
   id: string;
   name: string;

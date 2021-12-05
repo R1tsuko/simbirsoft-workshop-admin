@@ -2,8 +2,15 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Pages.module.scss';
 
-const Pages = () => (
+interface IPagesProps {
+  onPageChange: (page: number) => void;
+  page: number;
+  pagesCount?: number;
+}
+
+const Pages: React.FC<IPagesProps> = ({ onPageChange, page, pagesCount }) => (
   <ReactPaginate
+    forcePage={page}
     containerClassName={styles.pagesContainer}
     pageClassName={styles.page}
     previousClassName={styles.previous}
@@ -13,9 +20,10 @@ const Pages = () => (
     breakLabel='...'
     nextLabel='>>'
     pageRangeDisplayed={3}
-    pageCount={1000}
+    pageCount={pagesCount || 1}
     previousLabel='<<'
     marginPagesDisplayed={1}
+    onPageChange={({ selected }) => onPageChange?.(selected)}
   />
 );
 

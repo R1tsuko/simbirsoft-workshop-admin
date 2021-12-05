@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { ChangeEvent } from 'react';
 import classNames from 'classnames';
 import styles from './Input.module.scss';
@@ -8,8 +7,8 @@ interface IInputProps {
   placeholder?: string;
   blackText?: boolean;
   errorMessage?: string;
-  labelText: string;
-  name: string;
+  labelText?: string;
+  name?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
